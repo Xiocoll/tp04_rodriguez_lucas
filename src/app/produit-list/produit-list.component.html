@@ -1,0 +1,11 @@
+<h3>Produits: </h3>
+
+<app-moteur-recherche></app-moteur-recherche> 
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let produit of produits | async">
+    <p>{{ produit.numero }} - {{ produit.nom }}</p>
+
+
+  </li>
+</ul>

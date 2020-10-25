@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { FormulaireComponent } from "./formulaire.component";
+import { FormulaireComponent } from "./formulaire/formulaire.component";
 
 const routes: Routes = [
   {

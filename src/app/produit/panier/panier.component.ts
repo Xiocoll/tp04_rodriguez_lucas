@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { Observable } from "rxjs";
 
 @Component({
@@ -8,7 +9,7 @@ import { Observable } from "rxjs";
 })
 export class PanierComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
   }

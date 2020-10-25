@@ -9,11 +9,10 @@ import { ProduitService } from "../../produit.service";
   styleUrls: ["./produit-list.component.css"]
 })
 export class ProduitListComponent implements OnInit {
-
-searchNom : string = "";
-  searchFruit : string = "fruit";
-  searchLegume : string = "legume";
-  searchType : string = "";
+  searchNom: string = "";
+  searchFruit: string = "fruit";
+  searchLegume: string = "legume";
+  searchType: string = "";
 
   constructor(private ProduitService: ProduitService) {}
 
@@ -23,12 +22,12 @@ searchNom : string = "";
     this.ProduitService.searchNom(this.searchNom).subscribe();
   }
 
-  getValidationNom () : boolean {
-    if(this.searchNom == ""){
+  getValidationNom(): boolean {
+    if (this.searchNom == "") {
       return true;
     } else {
-    return (/^[A-Za-z]{1,30}$/.test (this.searchNom));
-    }    
+      return /^[A-Za-z]{1,30}$/.test(this.searchNom);
+    }
   }
 
   onSearchTermChange(): void {
@@ -39,5 +38,7 @@ searchNom : string = "";
     this.ProduitService.searchType(type).subscribe();
   }
 
-  onClickAdd(produit: Produit) {}
+  onClickAdd(produit: Produit) {
+    
+  }
 }

@@ -7,6 +7,11 @@ import { delay, map, tap } from 'rxjs/operators';
 import { Produit } from './produit';
 import { environment } from './environment';
 
+import { Store } from "@ngxs/store";
+import { AddProduit } from "./shared/actions/produit-action";
+import { ProduitState } from "./shared/states/produit-state";
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +21,7 @@ export class ProduitService {
   private filtreProd: Subject<Produit[]> = 
     new ReplaySubject<Produit[]>(1);
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private store: Store) { }
 
   getSearchResults(): Observable<Produit[]> {
     return this.filtreProd.asObservable();
@@ -57,4 +62,9 @@ export class ProduitService {
       tap((prods: Produit[]) => this.prods = prods)
     );
   }
+
+  setProduitPanier(produit: Produit){
+    this.store.dispatch(new AddProduit(produit));
+  }
+
 }

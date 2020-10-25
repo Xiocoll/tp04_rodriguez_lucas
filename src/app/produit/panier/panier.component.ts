@@ -14,11 +14,11 @@ import { ProduitState } from "../../shared/states/produit-state";
 export class PanierComponent implements OnInit {
   constructor(private ProduitService: ProduitService, private store: Store) {}
 
-  lesProduits: Observable<Produit[]>;
+  lesProduits: Observable<Produit[]> = this.store.select(
+    ProduitState.getProduit
+  );
 
-  ngOnInit() {
-    this.lesProduits = this.store.select(ProduitState.getProduit);
-  }
+  ngOnInit() {}
 
   onClickDel(produit: Produit) {
     this.ProduitService.setProduitPanierDel(produit);

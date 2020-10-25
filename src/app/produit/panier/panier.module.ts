@@ -5,9 +5,9 @@ import { PanierComponent } from "./panier.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+/*
 
-
-import { ArticleState } from "../../shared/states/article-state";
+import { ArticleState } from "../../shared/states/article-state";*/
 
 @NgModule({
   imports: [

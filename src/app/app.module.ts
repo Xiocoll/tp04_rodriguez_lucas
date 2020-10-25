@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { FormControl } from "@angular/forms";
-
 import { AppComponent } from "./app.component";
 import { TetiereComponent } from "./tetiere/tetiere.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -15,8 +14,9 @@ import { PhonePipe } from "./phone.pipe";
 import { TestStringDirective } from "./test-string.directive";
 import { ProduitService } from "./produit.service";
 /*import { ErrorDirective } from "./error.directive";*/
-import { AccueilComponent } from "./accueil/accueil.component";/*
+import { AccueilComponent } from "./accueil/accueil.component"; /*
 import { PanierComponent } from './produit/panier/panier.component';*/
+/*import { NgxsModule } from '@ngxs/store';*/
 
 const appRoutes: Routes = [
   { path: "clients", component: ClientListComponent },
@@ -37,8 +37,11 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./produit/panier/panier.module").then(m => m.PanierModule)
   },
-  { path: "accueil", component: AccueilComponent },/*
-  { path: "panier", component: PanierComponent },*/
+  {
+    path: "accueil",
+    component: AccueilComponent
+  } /*
+  { path: "panier", component: PanierComponent },*/,
   { path: "", component: AccueilComponent }
 ];
 
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    /*NgxsModule.forRoot (),*/
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule
@@ -58,7 +62,7 @@ const appRoutes: Routes = [
     PhonePipe,
     TestStringDirective,
     /*ErrorDirective,*/
-    AccueilComponent,/*
+    AccueilComponent /*
     PanierComponent*/
   ],
   bootstrap: [AppComponent],

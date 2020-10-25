@@ -1,6 +1,7 @@
 import { NgxsModule, Action, Selector, State, StateContext } from "@ngxs/store";
 import { ProduitStateModel } from "./produit-state-model";
 import { AddProduit, DelProduit } from "../actions/produit-action";
+import { Produit } from "../../produit";
 
 @State<ProduitStateModel>({
   name: "listProduit",
@@ -12,6 +13,11 @@ export class ProduitState {
   @Selector()
   static getNbProduit(state: ProduitStateModel): number {
     return state.produits.length;
+  }
+
+  @Selector()
+  static getProduit(state: ProduitStateModel): Produit[] {
+    return state.produits;
   }
 
   @Action(AddProduit)

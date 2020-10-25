@@ -16,7 +16,8 @@ import { ProduitService } from "./produit.service";
 /*import { ErrorDirective } from "./error.directive";*/
 import { AccueilComponent } from "./accueil/accueil.component"; /*
 import { PanierComponent } from './produit/panier/panier.component';*/
-/*import { NgxsModule } from '@ngxs/store';*/
+import { NgxsModule } from '@ngxs/store';
+import { ProduitState } from "./shared/states/produit-state";
 
 const appRoutes: Routes = [
   { path: "clients", component: ClientListComponent },
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    /*NgxsModule.forRoot (),*/
+    NgxsModule.forRoot ([ProduitState]),
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule

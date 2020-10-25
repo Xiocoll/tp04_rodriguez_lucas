@@ -39,6 +39,6 @@ export class ProduitListComponent implements OnInit {
   }
 
   onClickAdd(produit: Produit) {
-    this.ProduitService.setProduitPanier(produit);
+    this.ProduitService.setProduitPanierAdd(produit);
   }
 }

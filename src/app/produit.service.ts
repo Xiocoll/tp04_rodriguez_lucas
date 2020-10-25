@@ -8,7 +8,7 @@ import { Produit } from './produit';
 import { environment } from './environment';
 
 import { Store } from "@ngxs/store";
-import { AddProduit } from "./shared/actions/produit-action";
+import { AddProduit, DelProduit } from "./shared/actions/produit-action";
 import { ProduitState } from "./shared/states/produit-state";
 
 
@@ -63,8 +63,12 @@ export class ProduitService {
     );
   }
 
-  setProduitPanier(produit: Produit){
-    this.store.dispatch(new AddProduit(produit));
+  setProduitPanierAdd(prod: Produit){
+    this.store.dispatch(new AddProduit(prod));
+  }
+
+  setProduitPanierDel(produit: Produit) {
+    this.store.dispatch(new DelProduit(produit));
   }
 
 }

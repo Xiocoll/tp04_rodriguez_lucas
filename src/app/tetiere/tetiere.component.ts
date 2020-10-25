@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Store } from "@ngxs/store";
+import { Observable } from 'rxjs';
+import { ProduitState } from '../shared/states/produit-state';
+
 @Component({
   selector: 'app-tetiere',
   templateUrl: './tetiere.component.html',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TetiereComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
+
+  nbrProduits: Observable<number>;
 
   ngOnInit() {
+    this.nbrProduits = this.store.select(
+      ProduitState.getNbProduit);
   }
 
 }

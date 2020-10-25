@@ -1,10 +1,7 @@
 <p>Voici le(s) produit(s) dans votre panier</p>
-<!--
-<ul class="list-group">
-	<li class="list-group-item" *ngFor="let produit of produits | async">
-		<p><a [routerLink]="['./detail',produit.numero]">{{ produit.numero }} - {{ produit.nom }}</a></p>
-		<button type="submit" (click)="onClickAdd(produit)">Ajouter Panier</button>
-
-
-	</li>
-</ul>-->
+<table *ngIf="lesProduits | async">
+	<tr *ngFor="let produit of lesProduits | async">
+		<td>{{ produit.nom }}</td>
+		<td><button type="submit" (click)="onClickDel(produit)" >Supprimer du panier</button>
+	</tr>
+</table>

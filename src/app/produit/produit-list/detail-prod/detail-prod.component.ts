@@ -21,6 +21,7 @@ export class DetailProdComponent implements OnInit {
     });
   }
 
-  onClickAdd(produit: Produit) {}
-
+  onClickAdd(produit: Produit) {
+    this.produitService.setProduitPanierAdd(produit);
+  }
 }

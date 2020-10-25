@@ -2,6 +2,6 @@
 <table>
 	<tr *ngFor="let produit of lesProduits | async">
 		<td>{{ produit.nom }}</td>
-		<td><button type="submit" (click)="onClickDel(produit)" >Supprimer du panier</button>
+		<td><button type="submit" (click)="onClickDel(produit)" >Supprimer</button>
 	</tr>
 </table>

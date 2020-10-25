@@ -18,14 +18,17 @@ import { ProduitListComponent } from "./produit/produit-list/produit-list.compon
 import { ProduitService } from "./produit.service";
 import { ErrorDirective } from "./error.directive";
 import { MoteurRechercheComponent } from "./produit/moteur-recherche/moteur-recherche.component";
+import { AccueilComponent } from './accueil/accueil.component';
 
 const appRoutes: Routes = [
   { path: "clients", component: ClientListComponent },
   { path: "formulaire", component: FormulaireComponent },
   { path: "tetiere", component: TetiereComponent },
   { path: "footer", component: FooterComponent },
-  { path: "produits", component: ProduitListComponent },
-  { path: "", component: ProduitListComponent }
+  { path: "produits", loadChildren: () =>
+      import("./produit/produit-list/produit.module").then(m => m.ProduitModule) },
+  { path: "accueil", component: AccueilComponent },
+  { path: "", component: AccueilComponent }
 ];
 
 @NgModule({
@@ -46,7 +49,8 @@ const appRoutes: Routes = [
     TestStringDirective,
     ProduitListComponent,
     ErrorDirective,
-    MoteurRechercheComponent
+    MoteurRechercheComponent,
+    AccueilComponent
   ],
   bootstrap: [AppComponent],
   providers: [ClientService, ProduitService]

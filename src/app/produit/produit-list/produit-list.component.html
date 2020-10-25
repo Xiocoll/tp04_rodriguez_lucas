@@ -5,6 +5,7 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let produit of produits | async">
     <p>{{ produit.numero }} - {{ produit.nom }}</p>
+    <button type="submit" (click)="onClickAdd(produit)">Ajouter Panier</button>
 
 
   </li>

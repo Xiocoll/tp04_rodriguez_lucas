@@ -17,6 +17,10 @@ export class ProduitListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClickAdd(produit: Produit)
+  {
+
+  }
   
 
   

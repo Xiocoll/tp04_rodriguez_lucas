@@ -11,12 +11,13 @@ import { ProduitService } from "../../../produit.service";
 })
 export class DetailProdComponent implements OnInit {
 
-  prod: Observable<Produit>;
+  
   constructor(private route: ActivatedRoute, private produitService: ProduitService) { }
+  prod: Observable<Produit>;
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const num = params["num"];
+    this.route.params.subscribe(p => {
+      const num = p["num"];
       this.prod = this.produitService.getProduitNumero(num);
     });
   }

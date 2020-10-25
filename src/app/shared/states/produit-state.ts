@@ -42,7 +42,7 @@ export class ProduitState {
     patchState({
       // supprimer le payload dans users
       produits: state.produits.filter(
-        item => item.nom != payload.nom && item.type != payload.type
+        item => item.nom != payload.nom && item.numero != payload.numero
       )
     });
   }

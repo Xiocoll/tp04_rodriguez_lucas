@@ -67,8 +67,8 @@ export class ProduitService {
     this.store.dispatch(new AddProduit(prod));
   }
 
-  setProduitPanierDel(produit: Produit) {
-    this.store.dispatch(new DelProduit(produit));
+  setProduitPanierDel(prod: Produit) {
+    this.store.dispatch(new DelProduit(prod));
   }
 
 }

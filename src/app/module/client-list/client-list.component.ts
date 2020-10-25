@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Pipe } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Client } from '../client';
-import { ClientService } from '../client.service';
+import { Client } from '../../client';
+import { ClientService } from '../../client.service';
 
 
 @Component({

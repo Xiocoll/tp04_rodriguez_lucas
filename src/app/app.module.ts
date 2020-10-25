@@ -16,6 +16,7 @@ import { TestStringDirective } from "./test-string.directive";
 import { ProduitService } from "./produit.service";
 /*import { ErrorDirective } from "./error.directive";*/
 import { AccueilComponent } from "./accueil/accueil.component";
+import { PanierComponent } from './produit/panier/panier.component';
 
 const appRoutes: Routes = [
   { path: "clients", component: ClientListComponent },
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
       import("./client/client.module").then(m => m.ClientModule)
   },
   { path: "accueil", component: AccueilComponent },
+  { path: "panier", component: PanierComponent },
   { path: "", component: AccueilComponent }
 ];
 
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     PhonePipe,
     TestStringDirective,
     /*ErrorDirective,*/
-    AccueilComponent
+    AccueilComponent,
+    PanierComponent
   ],
   bootstrap: [AppComponent],
   providers: [ClientService, ProduitService]

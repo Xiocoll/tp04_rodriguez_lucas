@@ -9,7 +9,7 @@
 
 <ul class="list-group">
 	<li class="list-group-item" *ngFor="let produit of produits | async">
-		<p>{{ produit.numero }} - {{ produit.nom }}</p>
+		<p><a [routerLink]="['./detail',produit.numero]">{{ produit.numero }} - {{ produit.nom }}</a></p>
 		<button type="submit" (click)="onClickAdd(produit)">Ajouter Panier</button>
 
 

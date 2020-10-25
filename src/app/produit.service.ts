@@ -42,6 +42,12 @@ export class ProduitService {
     );
   }
 
+  getProduitNumero(num: string): Observable<Produit> {
+    return this.fetchProd().pipe(
+      map(produits => produits.find(produit => produit.numero == num))
+    );
+  }
+
   private fetchProd(): Observable<Produit[]> {
     if (this.prods) {
       return of(this.prods);

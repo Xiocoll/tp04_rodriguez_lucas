@@ -14,7 +14,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ClientListComponent } from "./client/client-list/client-list.component";
 import { PhonePipe } from "./phone.pipe";
 import { TestStringDirective } from "./test-string.directive";
-import { ProduitListComponent } from "./produit/produit-list/produit-list.component";
+/*import { ProduitListComponent } from "./produit/produit-list/produit-list.component";*/
 import { ProduitService } from "./produit.service";
 import { ErrorDirective } from "./error.directive";
 import { MoteurRechercheComponent } from "./produit/moteur-recherche/moteur-recherche.component";
@@ -47,7 +47,7 @@ const appRoutes: Routes = [
     ClientListComponent,
     PhonePipe,
     TestStringDirective,
-    ProduitListComponent,
+    /*ProduitListComponent,*/
     ErrorDirective,
     MoteurRechercheComponent,
     AccueilComponent

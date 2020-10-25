@@ -14,11 +14,11 @@ import { AddProduit } from '../../../shared/actions/produit-action';
 export class DetailProdComponent implements OnInit {
 
   
-  constructor(private route: ActivatedRoute, private produitService: ProduitService, private store: Store) { }
+  constructor(private appRouter: ActivatedRoute, private produitService: ProduitService, private store: Store) { }
   prod: Observable<Produit>;
 
   ngOnInit() {
-      this.route.params.subscribe(p => {
+      this.appRouter.params.subscribe(p => {
       const num = p["num"];
       this.prod = this.produitService.getProduitNumero(num);
     });

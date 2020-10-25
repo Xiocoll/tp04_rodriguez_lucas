@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { FormulaireComponent } from "./formulaire/formulaire.component";
 
-const routes: Routes = [
+const appRoutes: Routes = [
   {
     path: "",
     component: FormulaireComponent
@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(appRoutes)],
   exports: [RouterModule]
 })
 export class ClientRoutingModule {}

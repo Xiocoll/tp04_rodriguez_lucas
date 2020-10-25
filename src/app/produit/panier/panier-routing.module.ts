@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { PanierComponent } from "./panier.component";
 
-const routes: Routes = [
+const appRoutes: Routes = [
   {
     path: "",
     component: PanierComponent
@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(appRoutes)],
   exports: [RouterModule]
 })
 export class PanierRoutingModule {}

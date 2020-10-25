@@ -4,7 +4,7 @@ import { DetailProdComponent } from "./detail-prod/detail-prod.component";
 
 import { ProduitListComponent } from "./produit-list.component";
 
-const routes: Routes = [
+const appRoutes: Routes = [
   {
     path: "detail/:num",
     component: DetailProdComponent
@@ -16,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(appRoutes)],
   exports: [RouterModule]
 })
 export class ProduitRoutingModule {}

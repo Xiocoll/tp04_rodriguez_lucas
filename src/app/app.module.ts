@@ -13,9 +13,7 @@ import { ClientListComponent } from "./client/client-list/client-list.component"
 import { PhonePipe } from "./phone.pipe";
 import { TestStringDirective } from "./test-string.directive";
 import { ProduitService } from "./produit.service";
-/*import { ErrorDirective } from "./error.directive";*/
-import { AccueilComponent } from "./accueil/accueil.component"; /*
-import { PanierComponent } from './produit/panier/panier.component';*/
+import { AccueilComponent } from "./accueil/accueil.component";
 import { NgxsModule } from '@ngxs/store';
 import { ProduitState } from "./shared/states/produit-state";
 
@@ -41,8 +39,7 @@ const appRoutes: Routes = [
   {
     path: "accueil",
     component: AccueilComponent
-  } /*
-  { path: "panier", component: PanierComponent },*/,
+  },
   { path: "", component: AccueilComponent }
 ];
 
@@ -62,9 +59,7 @@ const appRoutes: Routes = [
     ClientListComponent,
     PhonePipe,
     TestStringDirective,
-    /*ErrorDirective,*/
-    AccueilComponent /*
-    PanierComponent*/
+    AccueilComponent
   ],
   bootstrap: [AppComponent],
   providers: [ClientService, ProduitService]

@@ -1,27 +1,20 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-import { Observable, Subject, ReplaySubject, of } from 'rxjs';
-import { delay, map, tap } from 'rxjs/operators';
+import { Observable, Subject, ReplaySubject, of } from "rxjs";
+import { delay, map, tap } from "rxjs/operators";
 
-import { Produit } from './produit';
-import { environment } from './environment';
-
-import { Store } from "@ngxs/store";
-import { AddProduit, DelProduit } from "./shared/actions/produit-action";
-import { ProduitState } from "./shared/states/produit-state";
-
+import { Produit } from "./produit";
+import { environment } from "./environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ProduitService {
-
   private prods: Produit[];
-  private filtreProd: Subject<Produit[]> = 
-    new ReplaySubject<Produit[]>(1);
+  private filtreProd: Subject<Produit[]> = new ReplaySubject<Produit[]>(1);
 
-  constructor(private http:HttpClient, private store: Store) { }
+  constructor(private http: HttpClient) {}
 
   getSearchResults(): Observable<Produit[]> {
     return this.filtreProd.asObservable();
@@ -30,7 +23,9 @@ export class ProduitService {
   searchNom(searchNom: string): Observable<void> {
     return this.fetchProd().pipe(
       tap((prods: Produit[]) => {
-        prods = prods.filter(prod => prod.nom.toLowerCase().includes(searchNom));
+        prods = prods.filter(prod =>
+          prod.nom.toLowerCase().includes(searchNom)
+        );
         this.filtreProd.next(prods);
       }),
       map(() => void 0)
@@ -40,7 +35,9 @@ export class ProduitService {
   searchType(searchType: string): Observable<void> {
     return this.fetchProd().pipe(
       tap((prods: Produit[]) => {
-        prods = prods.filter(prod => prod.type.toLowerCase().includes(searchType));
+        prods = prods.filter(prod =>
+          prod.type.toLowerCase().includes(searchType)
+        );
         this.filtreProd.next(prods);
       }),
       map(() => void 0)
@@ -58,17 +55,8 @@ export class ProduitService {
       return of(this.prods);
     }
 
-    return this.http.get<Produit[]>(environment.backendProduit).pipe(
-      tap((prods: Produit[]) => this.prods = prods)
-    );
+    return this.http
+      .get<Produit[]>(environment.backendProduit)
+      .pipe(tap((prods: Produit[]) => (this.prods = prods)));
   }
-
-  setProduitPanierAdd(prod: Produit){
-    this.store.dispatch(new AddProduit(prod));
-  }
-
-  setProduitPanierDel(prod: Produit) {
-    this.store.dispatch(new DelProduit(prod));
-  }
-
 }

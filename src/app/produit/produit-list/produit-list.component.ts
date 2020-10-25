@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy, Pipe } from "@angular/core";
+import { Store } from "@ngxs/store";
 import { Subscription, Observable } from "rxjs";
 import { Produit } from "../../produit";
 import { ProduitService } from "../../produit.service";
+import { AddProduit } from "../../shared/actions/produit-action";
 
 @Component({
   selector: "app-produit-list",
@@ -14,7 +16,7 @@ export class ProduitListComponent implements OnInit {
   searchLegume: string = "legume";
   searchType: string = "";
 
-  constructor(private ProduitService: ProduitService) {}
+  constructor(private ProduitService: ProduitService, private store: Store) {}
 
   produits: Observable<Produit[]> = this.ProduitService.getSearchResults();
 
@@ -38,7 +40,7 @@ export class ProduitListComponent implements OnInit {
     this.ProduitService.searchType(type).subscribe();
   }
 
-  onClickAdd(produit: Produit) {
-    this.ProduitService.setProduitPanierAdd(produit);
+  onClickAdd(prod: Produit) {
+    this.store.dispatch(new AddProduit(prod));
   }
 }

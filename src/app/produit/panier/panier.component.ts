@@ -20,7 +20,7 @@ export class PanierComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClickDel(produit: Produit) {
-    this.ProduitService.setProduitPanierDel(produit);
+  onClickDel(prod: Produit) {
+    this.store.dispatch(new DelProduit(prod));
   }
 }

@@ -15,8 +15,8 @@ import { PhonePipe } from "./phone.pipe";
 import { TestStringDirective } from "./test-string.directive";
 import { ProduitService } from "./produit.service";
 /*import { ErrorDirective } from "./error.directive";*/
-import { AccueilComponent } from "./accueil/accueil.component";
-import { PanierComponent } from './produit/panier/panier.component';
+import { AccueilComponent } from "./accueil/accueil.component";/*
+import { PanierComponent } from './produit/panier/panier.component';*/
 
 const appRoutes: Routes = [
   { path: "clients", component: ClientListComponent },
@@ -32,8 +32,13 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import("./client/client.module").then(m => m.ClientModule)
   },
-  { path: "accueil", component: AccueilComponent },
-  { path: "panier", component: PanierComponent },
+  {
+    path: "panier",
+    loadChildren: () =>
+      import("./produit/panier/panier.module").then(m => m.PanierModule)
+  },
+  { path: "accueil", component: AccueilComponent },/*
+  { path: "panier", component: PanierComponent },*/
   { path: "", component: AccueilComponent }
 ];
 
@@ -53,8 +58,8 @@ const appRoutes: Routes = [
     PhonePipe,
     TestStringDirective,
     /*ErrorDirective,*/
-    AccueilComponent,
-    PanierComponent
+    AccueilComponent,/*
+    PanierComponent*/
   ],
   bootstrap: [AppComponent],
   providers: [ClientService, ProduitService]

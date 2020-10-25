@@ -9,16 +9,16 @@ import { FormControl } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormulaireComponent } from './module/formulaire/formulaire.component';
+import { FormulaireComponent } from './form/formulaire/formulaire.component';
 import { ClientService } from './client.service';
 import { RouterModule, Routes } from '@angular/router';
-import { ClientListComponent } from './module/client-list/client-list.component';
+import { ClientListComponent } from './client/client-list/client-list.component';
 import { PhonePipe } from './phone.pipe';
 import { TestStringDirective } from './test-string.directive';
-import { ProduitListComponent } from './module/produit-list/produit-list.component';
+import { ProduitListComponent } from './produit/produit-list/produit-list.component';
 import { ProduitService } from './produit.service';
 import { ErrorDirective } from './error.directive';
-import { MoteurRechercheComponent } from './module/moteur-recherche/moteur-recherche.component';
+import { MoteurRechercheComponent } from './moteur/moteur-recherche/moteur-recherche.component';
 
 const appRoutes: Routes = [
   {path: 'clients', component: ClientListComponent},
